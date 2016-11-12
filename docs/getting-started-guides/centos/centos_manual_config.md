@@ -122,6 +122,9 @@ KUBE_API_ARGS=""
 **Warning** This network must be unused in your network infrastructure! `172.30.0.0/16` is free in our network.
 
 ```shell
+$ systemctl start etcd
+$ systemctl enable etcd
+$ systemctl status etcd
 $ etcdctl mkdir /kube-centos/network
 $ etcdctl mk /kube-centos/network/config "{ \"Network\": \"172.30.0.0/16\", \"SubnetLen\": 24, \"Backend\": { \"Type\": \"vxlan\" } }"
 ```
